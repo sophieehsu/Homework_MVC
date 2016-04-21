@@ -17,9 +17,9 @@ namespace TheAccounting.Controllers
         public ActionResult List()
         {
             var model = new List<FeeData> {
-              new FeeData {Id=1, FeeType=enFeeType.Pay, FeeDay=new DateTime(2016,1,1), Amount=300 },
-              new FeeData {Id=2, FeeType=enFeeType.Pay, FeeDay=new DateTime(2016,1,2), Amount=1600 },
-              new FeeData {Id=3, FeeType=enFeeType.Pay, FeeDay=new DateTime(2016,1,3), Amount=800 }
+              new FeeData {Id=1, FeeType=enFeeType.支出, FeeDay=new DateTime(2016,1,1), Amount=300 },
+              new FeeData {Id=2, FeeType=enFeeType.支出, FeeDay=new DateTime(2016,1,2), Amount=1600 },
+              new FeeData {Id=3, FeeType=enFeeType.支出, FeeDay=new DateTime(2016,1,3), Amount=800 }
             };
 
             return View(model);

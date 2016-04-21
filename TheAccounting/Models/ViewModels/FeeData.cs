@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -20,11 +21,13 @@ namespace TheAccounting.Models.ViewModels
         /// <summary>
         /// 金額
         /// </summary>
+        [DisplayFormat(DataFormatString = "{0:#,##0}")]
         public double Amount { get; set; }
 
         /// <summary>
         /// 日期
         /// </summary>
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime FeeDay { get; set; }
 
         /// <summary>
@@ -35,14 +38,7 @@ namespace TheAccounting.Models.ViewModels
 
     public enum enFeeType
     {
-        /// <summary>
-        /// 收入
-        /// </summary>
-        Income = 1,
-
-        /// <summary>
-        /// 支出
-        /// </summary>
-        Pay = 2
+        支出 = 1,
+        收入 = 2
     }
 }
