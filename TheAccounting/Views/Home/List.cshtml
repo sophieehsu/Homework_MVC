@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TheAccounting.Models.ViewModels.FeeData>
+﻿@using TheAccounting.Models.ViewModels
+@model IEnumerable<FeeData>
 
 @{
     Layout = null;
@@ -8,10 +9,10 @@
     <div class="col-md-12">
         <table class="table table-bordered table-hover">
             <tr>
-                <th>#</th>
-                <th>類別</th>
-                <th>日期</th>
-                <th>金額</th>
+                <th>@Html.DisplayNameFor(model => model.Id)</th>
+                <th>@Html.DisplayNameFor(model => model.FeeType)</th>
+                <th>@Html.DisplayNameFor(model => model.FeeDay)</th>
+                <th>@Html.DisplayNameFor(model => model.Amount)</th>
             </tr>
             @foreach (var item in Model)
             {
@@ -20,7 +21,7 @@
                         @Html.DisplayFor(modelItem => item.Id)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FeeType)
+                        @Enum.GetName(typeof(enFeeType),item.FeeType)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.FeeDay)

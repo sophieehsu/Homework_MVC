@@ -9,20 +9,32 @@ namespace TheAccounting.Controllers
 {
     public class HomeController : Controller
     {
+        public static List<FeeData> myFeeData { get; set; }
+
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult List()
-        {
-            var model = new List<FeeData> {
+            myFeeData = new List<FeeData> {
               new FeeData {Id=1, FeeType=enFeeType.支出, FeeDay=new DateTime(2016,1,1), Amount=300 },
               new FeeData {Id=2, FeeType=enFeeType.支出, FeeDay=new DateTime(2016,1,2), Amount=1600 },
               new FeeData {Id=3, FeeType=enFeeType.支出, FeeDay=new DateTime(2016,1,3), Amount=800 }
             };
 
-            return View(model);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(FeeData model)
+        {
+            model.Id = myFeeData.Max(x => x.Id) + 1;
+            myFeeData.Add(model);
+
+            return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult List()
+        {
+            return View(myFeeData);
         }
 
         public ActionResult About()
