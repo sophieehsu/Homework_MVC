@@ -10,7 +10,7 @@ namespace TheAccounting.Controllers
     public class HomeController : Controller
     {
         FeeModels db = new FeeModels();
-        
+
         public ActionResult Index()
         {
             return View();
@@ -61,6 +61,12 @@ namespace TheAccounting.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
