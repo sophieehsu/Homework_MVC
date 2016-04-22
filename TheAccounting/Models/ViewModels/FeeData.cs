@@ -10,12 +10,6 @@ namespace TheAccounting.Models.ViewModels
     public class FeeData
     {
         /// <summary>
-        /// 編號
-        /// </summary>
-        [Display(Name = "#")]
-        public int Id { get; set; }
-
-        /// <summary>
         /// 類別
         /// </summary>
         [Display(Name = "類別")]
@@ -40,11 +34,5 @@ namespace TheAccounting.Models.ViewModels
         /// </summary>
         [Display(Name = "備註")]
         public string Memo { get; set; }
-    }
-
-    public enum enFeeType
-    {
-        支出 = 1,
-        收入 = 2
     }
 }

@@ -1,27 +1,31 @@
-﻿@using TheAccounting.Models.ViewModels
+﻿@using TheAccounting.Models
+@using TheAccounting.Models.ViewModels
+
 @model IEnumerable<FeeData>
 
 @{
     Layout = null;
+    var i = 0;
 }
 
 <div class="row">
     <div class="col-md-12">
         <table class="table table-bordered table-hover">
             <tr>
-                <th>@Html.DisplayNameFor(model => model.Id)</th>
+                <th>#</th>
                 <th>@Html.DisplayNameFor(model => model.FeeType)</th>
                 <th>@Html.DisplayNameFor(model => model.FeeDay)</th>
                 <th>@Html.DisplayNameFor(model => model.Amount)</th>
             </tr>
+
             @foreach (var item in Model)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Id)
+                        @(++i)
                     </td>
                     <td>
-                        @Enum.GetName(typeof(enFeeType),item.FeeType)
+                        @Html.DisplayFor(modelItem => item.FeeType)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.FeeDay)
