@@ -19,17 +19,20 @@ namespace TheAccounting.Controllers
         [HttpPost]
         public ActionResult Index(FeeData model)
         {
-            var data = new AccountBook()
+            if (ModelState.IsValid)
             {
-                Id = Guid.NewGuid(),
-                Categoryyy = (int)model.FeeType,
-                Amounttt = (int)model.Amount,
-                Dateee = model.FeeDay,
-                Remarkkk = model.Memo
-            };
+                var data = new AccountBook()
+                {
+                    Id = Guid.NewGuid(),
+                    Categoryyy = (int)model.FeeType,
+                    Amounttt = (int)model.Amount,
+                    Dateee = model.FeeDay,
+                    Remarkkk = model.Memo
+                };
 
-            db.AccountBook.Add(data);
-            db.SaveChanges();
+                db.AccountBook.Add(data);
+                db.SaveChanges();
+            }
 
             return View();
         }

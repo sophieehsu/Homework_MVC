@@ -135,6 +135,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBook.cs" />
+    <Compile Include="Models\Attributes\FeeDayAttribute.cs" />
     <Compile Include="Models\FeeModels.cs" />
     <Compile Include="Models\myEnum.cs" />
     <Compile Include="Models\ViewModels\FeeData.cs" />
