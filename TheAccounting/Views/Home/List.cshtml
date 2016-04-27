@@ -1,5 +1,6 @@
 ﻿@using TheAccounting.Models
 @using TheAccounting.Models.ViewModels
+@using TheAccounting.Extensions
 
 @model IEnumerable<FeeData>
 
@@ -25,7 +26,7 @@
                         @(++i)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FeeType)
+                        @Html.DisplayForFeeType(modelItem => item.FeeType)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.FeeDay)
