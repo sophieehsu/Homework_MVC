@@ -17,6 +17,7 @@ namespace TheAccounting.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(FeeData model)
         {
             if (ModelState.IsValid)
@@ -41,7 +42,7 @@ namespace TheAccounting.Controllers
         public ActionResult List()
         {
             // 取出最新的10筆紀錄
-            var myFeeData = from d in db.AccountBook.OrderByDescending(x => x.Dateee).Take(10).OrderBy(x => x.Dateee)
+            var myFeeData = from d in db.AccountBook.OrderByDescending(x => x.Dateee).Take(10)
                             select new FeeData
                             {
                                 FeeType = (enFeeType)d.Categoryyy,
